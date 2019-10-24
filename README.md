@@ -8,7 +8,15 @@ The dataset for this project is an image dataset of [102 Category Flower Dataset
 ## File Description
 ### Readme
 This file provides high level overview of the work done in project.
-### Code
-Image Classifier Project .ipynb consists of the code required to load, clean, explore and visualize the data and answer the questions.
 ### Data
-census.csv
+flowers folder contains training, test and validation datasets.
+cat_to_name.json file contains the mapping from category label to category name
+### Code
+image_classifier_project.ipynb notebook consists of the code required to load, preprocess, split the data, train and test the image classification neural network and save the checkpoint. 
+### Supplementary
+workspace_utils.py contains the code to avoid having your workspace disconnect during the long-running tasks in this notebook. 
+predict.py and train.py are the files to convert the image classifier project into a command line application.
+### LICENSE
+This file has copyright details.
+### HTML Report
+image_classifier_project.html provides python notebook in html format.
