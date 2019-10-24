@@ -20,3 +20,5 @@ predict.py and train.py are the files to convert the image classifier project in
 This file has copyright details.
 ### HTML Report
 image_classifier_project.html provides python notebook in html format.
+## Project Motivation
+The motivation is to develop something in a phone app that tells you the name of the flower your camera is looking at and then export it for use in a command line application.
