@@ -28,7 +28,10 @@ I applied transformations such as random scaling, cropping, and flipping on trai
 The validation and testing sets are used to measure the model's performance on data it hasn't seen yet and they don't need any scaling or rotation transformations, but only need resizing and cropping of the images to appropriate size.
 The pre-trained network used here was trained on the ImageNet dataset where each color channel was normalized separately. Hence, for all three sets I needed to normalize the means and standard deviations of the images to what the network expects.  These values shifted each color channel to be centered at 0 and range from -1 to 1.
 ## Building, Training and Testing the Classifier and Inference
-I loaded a [pre-trained network](https://pytorch.org/docs/master/torchvision/models.html). (As a starting point, the VGG networks since they are straightforward to use)
-I defined a new, untrained feed-forward network as a classifier, using ReLU activations and dropout
-I trained the classifier layers using backpropagation using the pre-trained network to get the features
-I tracked the loss and accuracy on the validation set to determine the best hyperparameters
+I loaded a [pre-trained network](https://pytorch.org/docs/master/torchvision/models.html). As a starting point, the VGG networks since they are straightforward to use. I defined a new, untrained feed-forward network as a classifier, using ReLU activations and dropout, then trained the classifier layers using backpropagation using the pre-trained network to get the features and tracked the loss and accuracy on the validation set to determine the best hyperparameters. 
+I saved the model (for future predictions without having to retrain the network) and other things such as the mapping of classes to indices which I got from one of the image datasets. This  can be attached to the model as an attribute which makes inference easier later on. 
+I also wrote a function to use a trained network for inference. That is, you can pass an image into the network and predict the class of the flower in the image. The function returns the top  𝐾  most likely classes along with the probabilities.
+## Result
+I was able to achieve  83% accuracy on the test images. And the inference yielded correct output class with over 90% probability.
+## Acknowledgement
+Thanks to Udacity Data Scientist Nanodegree content creators for providing us the opportunity to work on this project.
