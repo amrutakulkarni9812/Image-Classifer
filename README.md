@@ -16,7 +16,7 @@ image_classifier_project.ipynb notebook consists of the code required to load, p
 ### Supplementary
 workspace_utils.py contains the code to avoid having your workspace disconnect during the long-running tasks in this notebook. 
 predict.py and train.py are the files to convert the image classifier project into a command line application.
-### LICENSE
+### License
 This file has copyright details.
 ### HTML Report
 image_classifier_project.html provides python notebook in html format.
@@ -27,3 +27,8 @@ I split the data into training, validation and test sets.
 I applied transformations such as random scaling, cropping, and flipping on training data to help the network generalize leading to better performance. I made sure the input data is resized to 224x224 pixels as required by the pre-trained networks.
 The validation and testing sets are used to measure the model's performance on data it hasn't seen yet and they don't need any scaling or rotation transformations, but only need resizing and cropping of the images to appropriate size.
 The pre-trained network used here was trained on the ImageNet dataset where each color channel was normalized separately. Hence, for all three sets I needed to normalize the means and standard deviations of the images to what the network expects.  These values shifted each color channel to be centered at 0 and range from -1 to 1.
+## Building, Training and Testing the Classifier and Inference
+I loaded a [pre-trained network](https://pytorch.org/docs/master/torchvision/models.html). (As a starting point, the VGG networks since they are straightforward to use)
+I defined a new, untrained feed-forward network as a classifier, using ReLU activations and dropout
+I trained the classifier layers using backpropagation using the pre-trained network to get the features
+I tracked the loss and accuracy on the validation set to determine the best hyperparameters
