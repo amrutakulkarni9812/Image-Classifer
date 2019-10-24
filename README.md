@@ -22,3 +22,8 @@ This file has copyright details.
 image_classifier_project.html provides python notebook in html format.
 ## Project Motivation
 The motivation is to develop something in a phone app that tells you the name of the flower your camera is looking at and then export it for use in a command line application.
+## Data Preparation
+I split the data into training, validation and test sets.
+I applied transformations such as random scaling, cropping, and flipping on training data to help the network generalize leading to better performance. I made sure the input data is resized to 224x224 pixels as required by the pre-trained networks.
+The validation and testing sets are used to measure the model's performance on data it hasn't seen yet and they don't need any scaling or rotation transformations, but only need resizing and cropping of the images to appropriate size.
+The pre-trained network used here was trained on the ImageNet dataset where each color channel was normalized separately. Hence, for all three sets I needed to normalize the means and standard deviations of the images to what the network expects.  These values shifted each color channel to be centered at 0 and range from -1 to 1.
